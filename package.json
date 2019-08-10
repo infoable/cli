@@ -1,0 +1,58 @@
+{
+  "name": "@infoable/cli",
+  "description": "A CLI tool for Able API",
+  "version": "0.0.0",
+  "author": "InfoAble Team @infoable",
+  "bin": {
+    "able": "./bin/run"
+  },
+  "bugs": "https://github.com/kimdoyeong/cli/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "chalk": "^2.4.2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/tslint": "^3",
+    "@types/node": "^10",
+    "globby": "^10",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8",
+    "tslint": "^5",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/kimdoyeong/cli",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "GPL",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "able",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "kimdoyeong/cli",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "posttest": "tslint -p . -t stylish",
+    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
