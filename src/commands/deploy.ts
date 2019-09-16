@@ -62,9 +62,7 @@ export default class Deploy extends Command {
       mkdirSync(".able");
     }
     const archive = archiver("zip");
-    archive.glob("**", {
-      ignore: ["node_modules/**", ".able/**"]
-    });
+    archive.directory("./", "");
     const stream = createWriteStream(".able/file.zip");
 
     archive.pipe(stream);
